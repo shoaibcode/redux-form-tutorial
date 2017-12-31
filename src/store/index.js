@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import logger from "redux-logger";
 import promiseMiddleware from "redux-promise-middleware";
+import { reducer as form } from "redux-form"
 
 import todos from "./todos_reducer.js";
 
@@ -10,7 +11,8 @@ const createStoreWithMiddleware = applyMiddleware(promiseMiddleware(), logger)(
 );
 
 const store = combineReducers({
-	todos: todos
+	todos: todos,
+	form
 });
 
 export default createStoreWithMiddleware(
